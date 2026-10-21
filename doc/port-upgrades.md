@@ -12,6 +12,45 @@ listed under [Unreleased](#unreleased), as in the changelog.
 
 ## Unreleased
 
+## 43.1.2
+
+### Empty hypothesis and datatype lists fail without dereferencing
+
+`shen.by-hypothesis` and `shen.search-user-datatypes` now test the hypothesis
+or datatype list with `shen.lazyderef` and return `false` at once when it is
+empty, before dereferencing the checked term. This restores the 43.1 cost of
+the empty case, which 43.1.1 had raised by copying the term first.
+
+**Minimum Requirements**
+
+- Replace `t-star.kl`. Only the two `defun`s change; the
+  `shen.by-hypothesis-h` and `shen.search-user-datatypes-h` predicates are the
+  same as in 43.1.1.
+
+**Optimisation Opportunities**
+
+- Ports whose `shen.deref` copies the term no longer copy it when typechecking
+  starts with an empty hypothesis list, or when there are no user datatypes.
+
+## 43.1.1
+
+### Type checker loops dereference once
+
+`shen.search-user-datatypes` and `shen.by-hypothesis` are now ordinary
+functions that dereference the checked term once and call the new Prolog
+predicates `shen.search-user-datatypes-h` and `shen.by-hypothesis-h`.
+
+**Minimum Requirements**
+
+- Replace `t-star.kl`. Ports that translate or hand-port the `t-star.kl`
+  Prolog predicates must also handle `shen.by-hypothesis-h` and
+  `shen.search-user-datatypes-h`, or the kernel calls an undefined function.
+
+**Optimisation Opportunities**
+
+- Ports whose `shen.deref` copies the term no longer copy it once per datatype
+  rule and once per hypothesis.
+
 ## 43.1
 
 ### Public character stream interfaces

@@ -6,13 +6,31 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 
+## [43.1.2] - 2026-10-21
+
+Fork release of 43.1.1 plus the empty-list guard from review on
+[Shen-Language/shen-sources#117](https://github.com/Shen-Language/shen-sources/pull/117),
+published on pyrex41/shen-sources.
+
+### Changed
+
+- `shen.by-hypothesis` and `shen.search-user-datatypes` fail at once on an
+  empty hypothesis or datatype list, without dereferencing the checked term,
+  as before 43.1.1. In 43.1.1 they copied the term even when the list was
+  empty.
+
+## [43.1.1] - 2026-10-21
+
+Fork release of 43.1 plus
+[Shen-Language/shen-sources#117](https://github.com/Shen-Language/shen-sources/pull/117),
+published on pyrex41/shen-sources.
+
 ### Changed
 
 - The type checker dereferences the checked term once per call in
   `shen.search-user-datatypes` and `shen.by-hypothesis`, rather than once per
   datatype rule and once per hypothesis. A failed iteration unwinds its
-  bindings, so the term is the same on every iteration. An empty hypothesis or
-  datatype list still fails at once, without dereferencing the term.
+  bindings, so the term is the same on every iteration.
 
 ## [43.1] - 2026-10-16
 
@@ -736,7 +754,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 - y-or-n? fixed
 - compiler warnings suppressed in CLisp
 
-[Unreleased]: https://github.com/Shen-Language/shen-sources/compare/shen-42.2...HEAD
+[Unreleased]: https://github.com/pyrex41/shen-sources/compare/shen-43.1.2...HEAD
+[43.1.2]: https://github.com/pyrex41/shen-sources/compare/shen-43.1.1...shen-43.1.2
+[43.1.1]: https://github.com/pyrex41/shen-sources/compare/shen-43.1...shen-43.1.1
+[43.1]: https://github.com/Shen-Language/shen-sources/compare/shen-42.2...shen-43.1
 [42.2]: https://github.com/Shen-Language/shen-sources/compare/shen-42.1...shen-42.2
 [42.1]: https://github.com/Shen-Language/shen-sources/compare/shen-42.0...shen-42.1
 [42.0]: https://github.com/Shen-Language/shen-sources/compare/shen-41.3...shen-42.0
