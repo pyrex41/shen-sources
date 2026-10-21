@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 
+## [43.1.1] - 2026-10-21
+
+Fork release of 43.1 plus
+[Shen-Language/shen-sources#117](https://github.com/Shen-Language/shen-sources/pull/117),
+published on pyrex41/shen-sources.
+
 ### Changed
 
 - The type checker dereferences the checked term once per call in
@@ -735,7 +741,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 - y-or-n? fixed
 - compiler warnings suppressed in CLisp
 
-[Unreleased]: https://github.com/Shen-Language/shen-sources/compare/shen-42.2...HEAD
+[Unreleased]: https://github.com/pyrex41/shen-sources/compare/shen-43.1.1...HEAD
+[43.1.1]: https://github.com/pyrex41/shen-sources/compare/shen-43.1...shen-43.1.1
+[43.1]: https://github.com/Shen-Language/shen-sources/compare/shen-42.2...shen-43.1
 [42.2]: https://github.com/Shen-Language/shen-sources/compare/shen-42.1...shen-42.2
 [42.1]: https://github.com/Shen-Language/shen-sources/compare/shen-42.0...shen-42.1
 [42.0]: https://github.com/Shen-Language/shen-sources/compare/shen-41.3...shen-42.0

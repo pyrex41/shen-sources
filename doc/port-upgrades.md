@@ -12,6 +12,25 @@ listed under [Unreleased](#unreleased), as in the changelog.
 
 ## Unreleased
 
+## 43.1.1
+
+### Type checker loops dereference once
+
+`shen.search-user-datatypes` and `shen.by-hypothesis` are now ordinary
+functions that dereference the checked term once and call the new Prolog
+predicates `shen.search-user-datatypes-h` and `shen.by-hypothesis-h`.
+
+**Minimum Requirements**
+
+- Replace `t-star.kl`. Ports that translate or hand-port the `t-star.kl`
+  Prolog predicates must also handle `shen.by-hypothesis-h` and
+  `shen.search-user-datatypes-h`, or the kernel calls an undefined function.
+
+**Optimisation Opportunities**
+
+- Ports whose `shen.deref` copies the term no longer copy it once per datatype
+  rule and once per hypothesis.
+
 ## 43.1
 
 ### Public character stream interfaces
